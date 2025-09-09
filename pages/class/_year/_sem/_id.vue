@@ -70,7 +70,7 @@ export default {
         let { year, sem } = this.$route.params
         this.classname = this.$route.params.id
         //fetch class
-        let departmentData = await fetch(`https://gnehs.github.io/ntut-course-crawler-node/${year}/${sem}/department.json`)
+        let departmentData = await fetch(this.$api(`/${year}/${sem}/department.json`))
         .then(x =>x.json())
         departmentData.map(x => {
           x.class.map(y => {
