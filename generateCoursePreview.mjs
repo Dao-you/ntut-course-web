@@ -1,9 +1,8 @@
 import axios from "axios";
 import fs from "fs";
 import { JSDOM } from "jsdom";
-import { apiUrl } from "./utils/api.js";
-
-
+import api from "./utils/api.js";
+const { apiUrl } = api;
 
 let now = new Date()
 let sitemapUrls = []
