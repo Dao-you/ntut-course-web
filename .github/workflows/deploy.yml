@@ -32,3 +32,6 @@ jobs:
         publish_dir: dist
         force_orphan: true
         cname: ntut-course.gnehs.net
+
+env:
+  BASE_URL: https://dao-you.github.io/ntut-course-crawler-node/

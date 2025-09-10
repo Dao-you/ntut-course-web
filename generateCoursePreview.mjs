@@ -4,8 +4,6 @@ import { JSDOM } from "jsdom";
 import api from "./utils/api.js";
 const { apiUrl } = api;
 
-
-
 let now = new Date()
 let sitemapUrls = []
 
