@@ -7,6 +7,9 @@ on:
   schedule:
     - cron:  '0 0 */1 * *'
 
+env:
+  BASE_URL: https://dao-you.github.io/ntut-course-crawler-node/
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,6 +21,8 @@ jobs:
         cache: 'npm'
     - name: Install npm packages
       run: npm ci
+    - name: Check API Base URL var
+      run: echo $BASE_URL
     - name: Generate Pages
       run: npm run generate
     - name: Fixed index.html
@@ -33,6 +38,3 @@ jobs:
         force_orphan: true
         # cname: ntut-course.gnehs.net
         cname:  daoyoucourse.duckdns.org
-
-env:
-  BASE_URL: https://dao-you.github.io/ntut-course-crawler-node/
