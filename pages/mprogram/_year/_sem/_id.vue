@@ -65,19 +65,15 @@ export default {
     async getCourseByProgram() {
       const loading = this.$vs.loading()
       try {
-        let { year, sem } = this.$route.params
-        this.programname = this.$route.params.id
+        let { year, sem, id } = this.$route.params
         // fetch program list
         let programList = await fetch(
           this.$api(`/${year}/${sem}/mprogram.json`)
         ).then(x => x.json())
-        programList.map(x => {
-          x.class.map(y => {
-            if (y.name == this.programname) {
-              this.programData = y
-            }
-          })
-        })
+        this.programData = programList.find(x => x.id == id)
+        if (this.programData) {
+          this.programname = this.programData.name
+        }
         // fetch courses
         let course = await this.$fetchCourse(year, sem)
         if (this.programData && this.programData.course) {
