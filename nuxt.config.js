@@ -60,6 +60,10 @@ export default {
     '@nuxtjs/google-adsense'
   ],
 
+  publicRuntimeConfig: {
+    apiBase: process.env.BASE_URL || 'https://gnehs.github.io/ntut-course-crawler-node'
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   },
