@@ -1,8 +1,8 @@
 import axios from "axios";
 import fs from "fs";
 import { JSDOM } from "jsdom";
-import api from "./utils/api.js";
-const { apiUrl } = api;
+import createApi from "./utils/api.js";
+const { apiUrl } = createApi(process.env.BASE_URL || 'https://gnehs.github.io/ntut-course-crawler-node');
 
 
 let now = new Date()
