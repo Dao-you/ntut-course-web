@@ -12,12 +12,12 @@ https://github.com/gnehs/ntut-course-crawler-node
 
 ## 環境變數
 
-可透過 `base_url` 環境變數指定 API 進入點，
+可透過 `BASE_URL` 環境變數指定 API 進入點，
 未設定時預設為 `https://gnehs.github.io/ntut-course-crawler-node/`。
 
 ```bash
 # 使用自訂的 API 進入點啟動開發伺服器
-base_url=https://example.com npm run dev
+BASE_URL=https://example.com npm run dev
 ```
 
 ## Build Setup
