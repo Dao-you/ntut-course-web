@@ -11,19 +11,16 @@
       <template #title>搜尋時發生了錯誤</template>
       <pre>{{ onError || 'Error' }}</pre>
     </vs-alert>
-    <div v-for="group in filteredProgramData" :key="group.name">
-      <h3>{{ group.name }}</h3>
-      <div class="cards" style="--card-row: 5; --card-row-sm: 3">
-        <card
-          v-for="{ name } in group.class"
-          :key="name"
-          class="hoverable padding"
-          :to="`/course/${year}/${sem}/${name}`"
-        >
-          <card-title>{{ name }}</card-title>
-          <p>{{ group.name }}</p>
-        </card>
-      </div>
+    <div class="cards" style="--card-row: 5; --card-row-sm: 3">
+      <card
+        v-for="program in filteredProgramData"
+        :key="program.id"
+        class="hoverable padding"
+        :to="`/mprogram/${year}/${sem}/${program.id}`"
+      >
+        <card-title>{{ program.name }}</card-title>
+        <p>{{ program.id }}</p>
+      </card>
     </div>
   </div>
 </template>
@@ -78,21 +75,10 @@ export default {
       this.onError = null
       try {
         let val = this.filterProgramVal
-        if (val != '') {
-          this.filteredProgramData = this.programData
-            .filter(
-              x =>
-                x.name.match(val) ||
-                x.class
-                  .map(a => a.name)
-                  .join('')
-                  .match(val)
-            )
-            .map(x => {
-              x.class = x.class.filter(y => y.name.match(val))
-              return x
-            })
-            .filter(x => x.class.length)
+        if (val) {
+          this.filteredProgramData = this.programData.filter(
+            x => x.name.includes(val) || x.id.includes(val)
+          )
         } else {
           this.filteredProgramData = this.programData
         }
