@@ -35,4 +35,4 @@ jobs:
         cname:  daoyoucourse.duckdns.org
 
 env:
-  base_url: https://dao-you.github.io/ntut-course-crawler-node/
+  BASE_URL: https://dao-you.github.io/ntut-course-crawler-node/
