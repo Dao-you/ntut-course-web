@@ -65,7 +65,7 @@ export default {
       const loading = this.$vs.loading()
       try {
         this.programData = await fetch(
-          `https://gnehs.github.io/ntut-course-crawler-node/${this.year}/${this.sem}/mprogram.json`
+          this.$api(`/${this.year}/${this.sem}/mprogram.json`)
         ).then(x => x.json())
         this.filteredProgramData = this.programData
       } catch (e) {
