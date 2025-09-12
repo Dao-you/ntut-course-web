@@ -68,7 +68,9 @@ export default {
         let { year, sem } = this.$route.params
         this.programname = this.$route.params.id
         // fetch program list
-        let programList = await fetch(`https://gnehs.github.io/ntut-course-crawler-node/${year}/${sem}/mprogram.json`).then(x => x.json())
+        let programList = await fetch(
+          this.$api(`/${year}/${sem}/mprogram.json`)
+        ).then(x => x.json())
         programList.map(x => {
           x.class.map(y => {
             if (y.name == this.programname) {
