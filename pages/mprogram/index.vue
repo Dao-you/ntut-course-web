@@ -18,7 +18,7 @@
           v-for="{ name } in group.class"
           :key="name"
           class="hoverable padding"
-          :to="`/mprogram/${year}/${sem}/${name}`"
+          :to="`/course/${year}/${sem}/${name}`"
         >
           <card-title>{{ name }}</card-title>
           <p>{{ group.name }}</p>
