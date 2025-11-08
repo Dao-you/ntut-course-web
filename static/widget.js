@@ -1,5 +1,9 @@
 
 const courseData = []
+const DOMAIN_NAME = (typeof process !== 'undefined' && process.env && process.env.DOMAIN_NAME)
+  || (typeof globalThis !== 'undefined' && globalThis.DOMAIN_NAME)
+  || 'ntut-course.gnehs.net'
+const DOMAIN_HTTP_ORIGIN = `http://${DOMAIN_NAME}`
 
 function getUpcomingCourse() {
     let currentDate = new Date()
@@ -92,7 +96,7 @@ function createWidget() {
             let iconElement = footerStack.addText("🍤")
             iconElement.textOpacity = 0.5
             iconElement.font = Font.mediumSystemFont(13)
-            iconElement.url = `http://ntut-course.gnehs.net/`
+            iconElement.url = `${DOMAIN_HTTP_ORIGIN}/`
         }
     } else {
         let courseTxt = widget.addText('沒有課程')
@@ -110,7 +114,7 @@ function createWidget() {
         providerText.textColor = Color.white()
         providerText.textOpacity = 0.7
         providerText.font = Font.mediumSystemFont(13)
-        footerStack.url = `http://ntut-course.gnehs.net/`
+        footerStack.url = `${DOMAIN_HTTP_ORIGIN}/`
     }
     return widget
 }

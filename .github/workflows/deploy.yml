@@ -10,6 +10,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      DOMAIN_NAME: ${{ vars.DOMAIN_NAME || secrets.DOMAIN_NAME || 'ntut-course.gnehs.net' }}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
@@ -31,4 +33,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist
         force_orphan: true
-        cname: daoyoucourse.duckdns.org
+        cname: ${{ env.DOMAIN_NAME }}

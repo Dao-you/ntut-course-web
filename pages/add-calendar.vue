@@ -177,7 +177,7 @@ export default {
             .map(y => y.name)
             .join('、')
             .trimEllip(13),
-          link: `https://ntut-course.gnehs.net/course/${year}/${sem}/${x.id}`,
+          link: `${this.$domain.httpsOrigin}/course/${year}/${sem}/${x.id}`,
         }))
       this.selectedCourse = JSON.parse(JSON.stringify(this.courseData))
     },

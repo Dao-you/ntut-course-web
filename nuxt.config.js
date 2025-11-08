@@ -31,6 +31,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '@/plugins/domain',
     '@/plugins/api',
     '@/plugins/ics',
     '@/plugins/vuesax',
@@ -61,7 +62,8 @@ export default {
   ],
 
   publicRuntimeConfig: {
-    apiBase: process.env.BASE_URL || 'https://gnehs.github.io/ntut-course-crawler-node'
+    apiBase: process.env.BASE_URL || 'https://gnehs.github.io/ntut-course-crawler-node',
+    domainName: process.env.DOMAIN_NAME || 'ntut-course.gnehs.net',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -105,7 +107,7 @@ export default {
     meta: {
       name: '北科課程好朋友',
       description: '提供臺北科技大學最新課程資訊',
-      ogHost: 'https://ntut-course.gnehs.net/',
+      ogHost: `https://${process.env.DOMAIN_NAME || 'ntut-course.gnehs.net'}/`,
       ogImage: 'og.jpg'
     },
     theme_color: '#FFF',
